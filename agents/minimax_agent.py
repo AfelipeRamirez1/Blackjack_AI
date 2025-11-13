@@ -149,7 +149,7 @@ if __name__ == "__main__":
     # ser peor que "stand" (que perdería).
     print("--- Prueba 2: Jugador 11 vs Dealer 17 ---")
     state2 = {
-        "player": [5, 6],
+        "player": [5, 6, 7],
         "dealer": [10, 7],
         "turn": "PLAYER", "done": False, "reward": 0
     }
@@ -167,8 +167,8 @@ if __name__ == "__main__":
     # El valor de "stand" (según la heurística) será mucho mejor que -1.
     print("--- Prueba 3: Paranoia (Jugador 12 vs Dealer 4) ---")
     state3 = {
-        "player": [2, 10],
-        "dealer": [2, 2],
+        "player": [2, 8],
+        "dealer": [2, 8],
         "turn": "PLAYER", "done": False, "reward": 0
     }
     action3 = find_best_move(state3)
@@ -176,3 +176,13 @@ if __name__ == "__main__":
     print(f"Mano Dealer: {state3['dealer']} (Total: {hand_value(state3['dealer'])[0]})")
     print(f"Acción Minimax (Paranoica): {action3}") # Debería ser "stand"
     print("-" * 20)
+    for i in range(21):
+        for x in range(21):
+            statex={
+                "player": [i+x],
+                "dealer": [x],
+                "turn": "PLAYER", "done": False, "reward": 0
+                }
+            actionx = find_best_move(statex)
+            if actionx!="stand":
+                print("ola k ase?")

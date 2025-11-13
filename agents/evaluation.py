@@ -126,7 +126,14 @@ if __name__ == "__main__":
     dealer_cache = {} 
     player_h = [10, 8]  # 18
     dealer_h = [10, 6]   # 16
-   
+    # Dealer tiene 16, debe pedir.
+    # P(As) -> 17 (Pierde)
+    # P(2) -> 18 (Empata)
+    # P(3) -> 19 (Gana)
+    # P(4) -> 20 (Gana)
+    # P(5) -> 21 (Gana)
+    # P(6+) -> Bust (Pierde)
+    # Esperamos un EV positivo para el jugador.
     ev_2 = get_stand_value(player_h, dealer_h)
     print(f"Mano Jugador: {player_h} (Total: {hand_value(player_h)[0]})")
     print(f"Mano Dealer: {dealer_h} (Total: {hand_value(dealer_h)[0]})")
