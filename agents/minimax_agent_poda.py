@@ -13,7 +13,7 @@ except ImportError:
     print("Asegúrate de que la estructura de carpetas es correcta y estás ejecutando desde la raíz.")
     sys.exit(1)
 
-
+DEFAULT_MAX_DEPTH = 4
 def find_best_move(state: Dict, max_depth: int = DEFAULT_MAX_DEPTH) -> str:
     """
     Función principal que inicia la búsqueda Minimax con Poda Alfa-Beta.
